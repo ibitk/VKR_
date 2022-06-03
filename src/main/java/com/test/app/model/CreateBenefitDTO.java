@@ -1,5 +1,5 @@
 package com.test.app.model;
-
+// модель бенефита
 import com.test.app.entity.Student;
 import lombok.Builder;
 import lombok.Data;
