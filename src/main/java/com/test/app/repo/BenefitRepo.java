@@ -11,6 +11,6 @@ import java.util.Optional;
 @Repository
 public interface BenefitRepo extends CrudRepository<Benefit, Long> {
 
-    Optional<Benefit> findByStudent(Student student);
+    Optional<Benefit> findByStudent(Student student);// все еще пробел
 
 }
