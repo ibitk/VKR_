@@ -31,8 +31,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void createUser(CreateUserDTO createUserDTO) {
         var userEntity = User.builder()
-                .firstName(createUserDTO.getFirstName())
-                .lastName(createUserDTO.getLastName())
+                .name(createUserDTO.getName())
                 .id(createUserDTO.getUserId())
                 .login(createUserDTO.getLogin())
                 .passwordHash(createUserDTO.getPasswordHash())

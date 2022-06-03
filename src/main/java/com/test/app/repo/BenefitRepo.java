@@ -13,4 +13,6 @@ public interface BenefitRepo extends CrudRepository<Benefit, Long> {
 
     Optional<Benefit> findByStudent(Student student);
 
+    Optional<Benefit> findByStudentOrderByEndedAtDesc(Student student);
+
 }

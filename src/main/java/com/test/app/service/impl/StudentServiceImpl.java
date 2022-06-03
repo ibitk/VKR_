@@ -16,8 +16,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
 
-    private final Comparator<Student> lastNameComparator = Comparator.comparing(Student::getLastName);
-    private final Comparator<Student> studentClassComparator = Comparator.comparing((student) -> student.getStudentClass().getName());
+    private final Comparator<Student> lastNameComparator = Comparator.comparing(Student::getName);
+    private final Comparator<Student> studentClassComparator = Comparator.comparing(
+            (student) -> student.getStudentClass().getName());
 
     private final StudentRepo repo;
 
@@ -65,8 +66,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findStudentByLastNameAndClass(long studentClass_id, String lastName) {
-        return repo.findByStudentClassIdAndLastName(studentClass_id, lastName)
+    public Student findStudentByLastNameAndClass(long studentClass_id, String name) {
+        return repo.findByStudentClassIdAndName(studentClass_id, name)
                 .orElseThrow(() -> new NotFoundException("Целевой студент не найден"));
     }
 }

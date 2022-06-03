@@ -52,7 +52,7 @@ public class BenefitServiceImpl implements BenefitService {
 
         var student = studentService.getStudentById(studentId);
 
-        return benefitRepo.findByStudent(student).get();
+        return benefitRepo.findByStudentOrderByEndedAtDesc(student).get();
     }
 
     private BenefitType getBenefitType(long id) {

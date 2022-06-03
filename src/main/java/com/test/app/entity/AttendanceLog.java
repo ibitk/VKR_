@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.ZonedDateTime;
 
 @Entity
-@Table(name = "attendance_log")
+@Table(name = "st_attendance_log")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,6 +21,9 @@ public class AttendanceLog {
 
     @Column(name = "visited_at")
     private ZonedDateTime visitedAt;
+
+    @Column(name = "amount", nullable = false)
+    private double amount;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id", nullable = false)

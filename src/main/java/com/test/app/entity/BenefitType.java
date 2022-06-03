@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "benefit_type")
+@Table(name = "st_benefit_type")
 @Getter
 @Setter
 

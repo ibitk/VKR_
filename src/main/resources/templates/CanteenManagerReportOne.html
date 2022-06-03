@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="ZavStolMain.css">
+    <title th:text="${title}"/>
+    <link rel="stylesheet" href="/css/CanteenManagerReportOne.css">
 </head>
 <body>
 <header class="header">
     <div class="logo"><h2>ГБПОУ НСО "ДАК"</h2></div>
 
     <div class="nav">
-        <div class="nav_link">Малоимущие отчет</div>
-        <div class="nav_link">Платная основа отчет</div>
-        <div class="nav_link">Сироты отчет</div>
+        <a href="/canteen/manager" class="nav_link">Посещаемость</a>
+        <a href="/canteen/manager/1" class="nav_link">Платная основа отчет</a>
+        <a href="/canteen/manager/2" class="nav_link">Малоимущие отчет</a>
+        <a href="/canteen/manager/3" class="nav_link">Сироты отчет</a>
         <div class="nav_link">Выйти</div>
+    </div>
 
 </header>
 
@@ -29,71 +31,11 @@
                 <th width="300">Потрачено</th>
                 <th width="300">В период по</th>
             </tr>
-            <tr>
-                <td>Блинкова Е.А.</td>
-                <td>138.00</td>
-                <td>19320</td>
-                <td>06.05.2022</td>
-            </tr>
-            <tr>
-                <td>Бурехина С.Ю.</td>
-                <td>138.00</td>
-                <td>21390</td>
-                <td>06.05.2022</td>
-            </tr>
-            <tr>
-                <td>Бутрин Д.А.</td>
-                <td>138.00</td>
-                <td>20700</td>
-                <td>06.05.2022</td>
-            </tr>
-            <tr>
-                <td>Вольф А.И.</td>
-                <td>138.00</td>
-                <td>19320</td>
-                <td>06.05.2022</td>
-            </tr>
-            <tr>
-                <td>Шумейко А.Р.</td>
-                <td>138.00</td>
-                <td>20010</td>
-                <td>06.05.2022</td>
-            </tr>
-            <tr>
-                <td>Леонов А.Ф.</td>
-                <td>138.00</td>
-                <td>19320</td>
-                <td>06.05.2022</td>
-            </tr>
-            <tr>
-                <td>Пономарев З.Е.</td>
-                <td>138.00</td>
-                <td>21390</td>
-                <td>06.05.2022</td>
-            </tr>
-            <tr>
-                <td>Николаева Н.В.</td>
-                <td>138.00</td>
-                <td>20010</td>
-                <td>06.05.2022</td>
-            </tr>
-            <tr>
-                <td>Щукин Р.С.</td>
-                <td>138.00</td>
-                <td>20010</td>
-                <td>06.05.2022</td>
-            </tr>
-            <tr>
-                <td>РК-4</td>
-                <td>138.00</td>
-                <td>21390</td>
-                <td>06.05.2022</td>
-            </tr>
-            <tr>
-                <td>РК-5</td>
-                <td>138.00</td>
-                <td>21390</td>
-                <td>06.05.2022</td>
+            <tr th:each="reportEntry : ${report}">
+                <td th:text="${reportEntry.studentName}"></td>
+                <td th:text="${reportEntry.currentBenefit}"></td>
+                <td th:text="${reportEntry.totalCharge}"></td>
+                <td th:text="${reportEntry.periodEnd}"></td>
             </tr>
 
         </table>

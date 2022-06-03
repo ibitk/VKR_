@@ -1,8 +1,11 @@
 package com.test.app.service;
 
 import com.test.app.entity.AttendanceLog;
+import com.test.app.model.CanteenManagerAttendanceReport;
+import com.test.app.model.CanteenManagerReport;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 public interface AttendanceLogService {
     /**
@@ -24,9 +27,16 @@ public interface AttendanceLogService {
     /**
      * удаление лога посещения
      *
-     * @param id айли лога
+     * @param id
+     *         айли лога
      */
     void removeAttendanceLogById(long id);
+
+    List<CanteenManagerReport> getAttendanceCurrentReport();
+
+    List<CanteenManagerReport> getAttendanceCurrentRepoByBenefitType(int benefitType);
+
+    List<CanteenManagerAttendanceReport> getGroupedAttendanceReport();
 
 
 }

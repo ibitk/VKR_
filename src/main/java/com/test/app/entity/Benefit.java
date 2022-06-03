@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "benefit")
+@Table(name = "st_benefit")
 @Getter
 @Setter
 public class Benefit {

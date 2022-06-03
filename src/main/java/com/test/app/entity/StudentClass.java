@@ -8,7 +8,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "class")
+@Table(name = "st_class")
 @Getter
 @Setter
 

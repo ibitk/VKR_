@@ -12,5 +12,5 @@ public interface StudentRepo extends CrudRepository<Student, Long> {
 
     List<Student> findAllByStudentClassId(long studentClass_id);
 
-    Optional<Student> findByStudentClassIdAndLastName(long studentClass_id, String lastName);
+    Optional<Student> findByStudentClassIdAndName(long studentClass_id, String lastName);
 }

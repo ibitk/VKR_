@@ -41,6 +41,7 @@ h2 {
 
 .nav_link {
     cursor: pointer;
+    text-decoration: none;
     padding: 10px 10px;
     font-size: 18px;
     transition: background-color .1s linear;
@@ -50,6 +51,7 @@ h2 {
 
 .nav_link:hover {
     background-color: #9932cc;
+    text-decoration: none;
     border-radius: 3px;
     color: white;
 }

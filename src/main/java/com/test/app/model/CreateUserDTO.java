@@ -10,9 +10,7 @@ public class CreateUserDTO {
 
     private int userId;
 
-    private String firstName;
-
-    private String lastName;
+    private String name;
 
     private String login;
 
