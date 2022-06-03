@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/SignUp.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+    <div class="wrap_item" id="item_1">
+        <div class="wrap_text"><h1 class="text">Добро пожаловать!</h1></div>
+    </div>
+    <div class="wrap_item" id="item_2">
+        <div class="form">
+            <h1>Вход в аккаунт</h1>
+            <div class="name">Имя пользователя</div>
+
+            <div class="email_wrap">
+                <input type="email" placeholder="">
+
+                <div class="pass">Пароль</div>
+            </div>
+            <div class="pass_wrap">
+                <input type="password" placeholder="">
+
+            </div>
+            <div class="hz_chto_eto">
+
+                <div class="remember"><input type="checkbox" class="checkbox" id="check"><label for="check"></label>
+                    <p>Запомнить</p></div>
+
+
+                <a href="#" class="forget">Забыли пароль?</a>
+
+            </div>
+            <input type="submit" value="Логин">
+        </div>
+    </div>
+</div>
+</body>
+</html>

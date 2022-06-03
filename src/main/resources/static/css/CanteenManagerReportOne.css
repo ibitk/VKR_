@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f2f2f2;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-size: cover;
+    padding: 20px 120px;
+    background-color: #a4508b;
+    background-image: linear-gradient(326deg, #c15bb7 0%, #973e95 74%);
+    box-shadow: 0px 7px 50px 5px #a4508b;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav_link {
+    cursor: pointer;
+    padding: 10px 10px;
+    font-size: 18px;
+    transition: background-color .1s linear;
+    color: white;
+
+}
+
+.nav_link:hover {
+    background-color: #9932cc;
+    border-radius: 3px;
+    color: white;
+}
+
+.section {
+    margin: 0 120px;
+
+}
+
+.section h1 {
+    color: #515153;
+    font-size: 38px;
+    margin: 25px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.big-table {
+    overflow: auto;
+    position: relative;
+}
+
+.big-table table {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+    max-height: 550px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.big-table table::-webkit-scrollbar {
+    width: 18px;
+}
+
+.big-table table::-webkit-scrollbar-thumb {
+    background-color: #ad66a9;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .25) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, .25) 50%,
+    rgba(255, 255, 255, .25) 75%,
+    transparent 75%,
+    transparent);
+}
+
+.big-table table::-webkit-scrollbar-track {
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 1px;
+    background-color: #973e95;
+}
+
+table th {
+    background-color: #973e95;
+    color: white;
+    font-size: 20px;
+    padding: 25px 15px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+table td {
+    background-color: white;
+    padding: 25px 15px;
+    text-align: center;
+
+}
+
+

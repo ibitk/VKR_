@@ -1,0 +1,51 @@
+package service.impl;
+
+import com.test.app.entity.User;
+import com.test.app.exception.NotFoundException;
+import com.test.app.model.CreateUserDTO;
+import com.test.app.repo.UserRepo;
+import service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class UserServiceImpl implements UserService {
+
+    private final UserRepo userRepo;
+
+    @Override
+    public List<User> getUserListByRoleId(long roleId) {
+        return userRepo.getUserByRoleId(roleId);
+    }
+
+    @Override
+    public void removeUser(long id) {
+        if (userRepo.existsById(id))
+            throw new NotFoundException("Преподаватель не найден");
+        userRepo.deleteById(id);
+    }
+
+    @Override
+    public void createUser(CreateUserDTO createUserDTO) {
+        var userEntity = User.builder()
+                .firstName(createUserDTO.getFirstName())
+                .lastName(createUserDTO.getLastName())
+                .id(createUserDTO.getUserId())
+                .login(createUserDTO.getLogin())
+                .passwordHash(createUserDTO.getPasswordHash())
+                .roleId(createUserDTO.getRoleId())
+                .build();
+        userRepo.save(userEntity);
+
+    }
+
+    @Override
+    public User findById(long id) {
+        return userRepo.findById(id)
+                .orElseThrow(() -> new NotFoundException("Пользователь не найден"));
+    }
+
+}
