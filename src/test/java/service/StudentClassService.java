@@ -3,7 +3,6 @@ package service;
 import com.test.app.entity.StudentClass;
 import com.test.app.model.CreateStudentClassDTO;
 
-import java.util.List;
 
 public interface StudentClassService {
 
