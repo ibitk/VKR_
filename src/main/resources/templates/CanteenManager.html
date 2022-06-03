@@ -1,10 +1,117 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title th:text="${title}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/CanteenManager.cs}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<p th:text="'Hello, ' + ${title} + '!'"/>
+<header class="header">
+    <div class="logo"><h2>ГБПОУ НСО "ДАК"</h2></div>
+
+    <div class="nav">
+        <div class="nav_link">Малоимущие отчет</div>
+        <div class="nav_link">Платная основа отчет</div>
+        <div class="nav_link">Сироты отчет</div>
+        <div class="nav_link">Выйти</div>
+
+</header>
+
+<section class="section">
+
+    <h1>Присутствующие студенты</h1>
+
+    <div class="big-table">
+        <table>
+            <tr>
+                <th width="220">№ Группы</th>
+                <th width="220">Всего пришло</th>
+                <th width="220">Сироты</th>
+                <th width="220">Малоимущие</th>
+                <th width="220">Платная основа</th>
+
+            </tr>
+            <tr>
+                <td>РФ-11</td>
+                <td>18</td>
+                <td>4</td>
+                <td>6</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>РФ-2</td>
+                <td>20</td>
+                <td>10</td>
+                <td>5</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>ММ-1</td>
+                <td>10</td>
+                <td>1</td>
+                <td>3</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>ММ-2</td>
+                <td>15</td>
+                <td>2</td>
+                <td>3</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>МС-1</td>
+                <td>13</td>
+                <td>2</td>
+                <td>1</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>МС-2</td>
+                <td>22</td>
+                <td>1</td>
+                <td>4</td>
+                <td>17</td>
+            </tr>
+            <tr>
+                <td>РК-1</td>
+                <td>8</td>
+                <td>0</td>
+                <td>1</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>РК-2</td>
+                <td>11</td>
+                <td>1</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>РК-3</td>
+                <td>15</td>
+                <td>15</td>
+                <td>15</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>РК-4</td>
+                <td>15</td>
+                <td>15</td>
+                <td>15</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>РК-5</td>
+                <td>15</td>
+                <td>15</td>
+                <td>15</td>
+                <td>15</td>
+            </tr>
+        </table>
+    </div>
+    </div>
+</section>
 </body>
 </html>
