@@ -1,4 +1,4 @@
-package service;
+package com.test.app.service;
 
 import com.test.app.entity.Benefit;
 import com.test.app.entity.BenefitType;

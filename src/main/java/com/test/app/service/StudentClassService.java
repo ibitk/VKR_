@@ -1,4 +1,4 @@
-package service;
+package com.test.app.service;
 
 import com.test.app.entity.StudentClass;
 import com.test.app.model.CreateStudentClassDTO;

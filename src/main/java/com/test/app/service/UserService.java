@@ -1,4 +1,4 @@
-package service;
+package com.test.app.service;
 
 import com.test.app.entity.User;
 import com.test.app.model.CreateUserDTO;

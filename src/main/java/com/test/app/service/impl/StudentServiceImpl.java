@@ -1,11 +1,11 @@
-package service.impl;
+package com.test.app.service.impl;
 
 import com.test.app.exception.NotFoundException;
 import com.test.app.exception.WrongArgException;
 import com.test.app.entity.Student;
 import com.test.app.model.SortCriteria;
 import com.test.app.repo.StudentRepo;
-import service.StudentService;
+import com.test.app.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
