@@ -1,10 +1,10 @@
-package service.impl;
+package com.test.app.service.impl;
 
 import com.test.app.entity.AttendanceLog;
 import com.test.app.exception.NotFoundException;
 import com.test.app.repo.AttendanceLogRepo;
-import service.AttendanceLogService;
-import service.StudentService;
+import com.test.app.service.AttendanceLogService;
+import com.test.app.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,10 +1,10 @@
-package service.impl;
+package com.test.app.service.impl;
 
 import com.test.app.entity.User;
 import com.test.app.exception.NotFoundException;
 import com.test.app.model.CreateUserDTO;
 import com.test.app.repo.UserRepo;
-import service.UserService;
+import com.test.app.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

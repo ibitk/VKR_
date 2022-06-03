@@ -1,4 +1,4 @@
-package service.impl;
+package com.test.app.service.impl;
 
 
 import com.test.app.entity.Benefit;
@@ -7,8 +7,8 @@ import com.test.app.exception.NotFoundException;
 import com.test.app.model.CreateBenefitDTO;
 import com.test.app.repo.BenefitRepo;
 import com.test.app.repo.BenefitTypeRepo;
-import service.BenefitService;
-import service.StudentService;
+import com.test.app.service.BenefitService;
+import com.test.app.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
