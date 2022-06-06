@@ -55,6 +55,7 @@ h2 {
 }
 
 .search_button {
+    text-decoration: none;
     cursor: pointer;
     margin-left: 10px;
     padding: 5px 10px;

@@ -15,31 +15,37 @@
         <div class="wrap_text"><h1 class="text">Добро пожаловать!</h1></div>
     </div>
     <div class="wrap_item" id="item_2">
-        <div class="form">
-            <h1>Вход в аккаунт</h1>
-            <div class="name">Имя пользователя</div>
+        <form name="loginForm" th:action="@{/perform-login}" method="post">
+            <div class="form1">
+                <h1>Вход в аккаунт</h1>
 
-            <div class="email_wrap">
-                <input type="email" placeholder="">
+                <div class="email_wrap">
+                    <label for="user" class="name">Имя пользователя</label>
+                    <input type="text" id="user" name="user">
 
-                <div class="pass">Пароль</div>
+
+                </div>
+                <div class="pass_wrap">
+                    <label for="pass" class="pass">Пароль</label>
+                    <input type="password" id="pass" name="pass">
+
+                </div>
+                <div class="hz_chto_eto">
+
+                    <div class="remember"><input type="checkbox" class="checkbox" id="check"><label for="check"></label>
+                        <p>Запомнить</p></div>
+
+
+                    <a href="#" class="forget">Забыли пароль?</a>
+
+                </div>
+
+                <button type="submit" class="btn" value="Логин">Войти</button>
+
             </div>
-            <div class="pass_wrap">
-                <input type="password" placeholder="">
-
-            </div>
-            <div class="hz_chto_eto">
-
-                <div class="remember"><input type="checkbox" class="checkbox" id="check"><label for="check"></label>
-                    <p>Запомнить</p></div>
-
-
-                <a href="#" class="forget">Забыли пароль?</a>
-
-            </div>
-            <input type="submit" value="Логин">
-        </div>
+        </form>
     </div>
+
 </div>
 </body>
 </html>
