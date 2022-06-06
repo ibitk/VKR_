@@ -1,10 +1,120 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title th:text="${title}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/HeadTeacher.css}">
+    <link rel="stylesheet" th:href="@{/css/Spisok.css}">
+    <link rel="stylesheet" th:href="@{/css/GroupSpisok.css}">
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
 </head>
 <body>
-<p th:text="'Hello, ' + ${title} + '!'"/>
+
+<header class="header">
+    <div class="logo"><h2>ГБПОУ НСО "ДАК"</h2></div>
+
+    <div class="nav">
+        <div class="nav_link">Сортировка № группы</div>
+        <div class="nav_link">Сортировка А-Я</div>
+
+        <input type="search" id="site-search" name="q">
+
+        <div class="search_button">Поиск по фамилии</div>
+        <div class="search_button">Поиск по группе</div>
+        <div class="search_button">Добавить пользователя</div>
+        <div class="search_button">Удалить группу</div>
+        <div class="search_button">Выйти</div>
+    </div>
+</header>
+
+<section class="section">
+
+    <h1>Сведения о студентах</h1>
+    <div class="button">Добавить студента</div>
+    <div class="button_2">Сохранить изменения</div>
+
+    <div class="big-table">
+        <table>
+
+            <tr>
+                <th>№</th>
+                <th>ФИО студента</th>
+                <th>Основание</th>
+                <th>Срок действия</th>
+                <th>Группа</th>
+                <th>Классный руководитель</th>
+                <th>Сумма</th>
+            </tr>
+            <div class="scroll-table-body">
+                <tr>
+                    <td>№1</td>
+                    <td><input class="putIn1 nameInput" data-id="1324" type="text" name="name" value="Блинкова Е.А.">
+                    </td>
+                    <td>
+                        <div class="selectdiv">
+                            <label>
+                                <select class="benefitInput" data-id="1324">
+                                    <option selected> Платная основа</option>
+                                    <option>Малоимущий/ая</option>
+                                    <option>Сирота</option>
+                                </select>
+                            </label>
+                        </div>
+                    </td>
+                    <td><input class="putIn1" type="text" name="Time" value="22.02.2022 - 14.03.2022"></td>
+                    <td>
+                        <div class="groupselectdiv">
+                            <label>
+                                <select data-id="1324" class="classInput">
+                                    <option selected> РФ-1</option>
+                                    <option> РФ-2</option>
+                                    <option> РФ-3</option>
+                                </select>
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="selectdiv">
+                            <label>
+                                <select data-id="1324" class="curatorInput">
+                                    <option selected> Кириенко Е.В.</option>
+                                    <option> Лот В.А.</option>
+                                    <option> Николаенко В.З.</option>
+                                </select>
+                            </label>
+                        </div>
+                    </td>
+                    <td><input class="putIn2" type="text" data-id="1324" class="priceInput" name="Price"
+                               value="300 руб."></td>
+                </tr>
+        </table>
+    </div>
+    </div>
+</section>
+<script>
+
+    $(".nameInput").change((event) => {
+        let val = event.target.value
+        let id = event.target.getAttribute("data-id")
+
+        $.ajax({
+            url: 'http://localhost:8888/api/changeStudentName',         /* Куда пойдет запрос */
+            method: 'post',             /* Метод передачи (post или get) */
+            dataType: 'json',          /* Тип данных в ответе (xml, json, script, html). */
+            data: {
+                id: id,
+                name: val
+            },     /* Параметры передаваемые в запросе. */
+            success: function (data) {   /* функция которая будет выполнена после успешного запроса.  */
+                alert(data);            /* В переменной data содержится ответ от index.php. */
+            }
+        });
+    })
+</script>
 </body>
 </html>

@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface StudentClassRepo extends CrudRepository<StudentClass, Long> {
 
+    List<StudentClass> findAllByCuratorId(long curator_id);
+
 }

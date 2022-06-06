@@ -47,13 +47,11 @@ h2 {
     color: white;
 
 }
-
 .nav_link:hover {
     background-color: #9932cc;
     border-radius: 3px;
     color: white;
 }
-
 .search_button {
     cursor: pointer;
     margin-left: 10px;
@@ -95,17 +93,14 @@ h2 {
     top: 130px;
     right: 300px;
 }
-
 #site-search {
     padding: 5px;
     margin-left: 10px;
 }
-
 .section {
     margin: 0 120px;
 
 }
-
 .section h1 {
     color: #515153;
     font-size: 38px;
@@ -113,12 +108,10 @@ h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
 }
-
 .big-table {
     overflow: auto;
     position: relative;
 }
-
 .big-table table {
     display: inline-block;
     vertical-align: top;
@@ -128,11 +121,9 @@ h2 {
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
 }
-
 .big-table table::-webkit-scrollbar {
     width: 18px;
 }
-
 .big-table table::-webkit-scrollbar-thumb {
     background-color: #ad66a9;
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .25) 25%,
@@ -143,12 +134,10 @@ h2 {
     transparent 75%,
     transparent);
 }
-
 .big-table table::-webkit-scrollbar-track {
     -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
     background-color: #f9f9fd;
 }
-
 table {
     border-collapse: separate;
     border-spacing: 1px;
@@ -162,12 +151,10 @@ table th {
     padding: 25px 15px;
     font-family: 'Montserrat', sans-serif;
 }
-
 table td {
     background-color: white;
     padding: 25px 15px;
 }
-
 .putIn1 {
     min-width: 170px;
     min-height: 60px;

@@ -27,8 +27,7 @@ public interface AttendanceLogService {
     /**
      * удаление лога посещения
      *
-     * @param id
-     *         айли лога
+     * @param id айли лога
      */
     void removeAttendanceLogById(long id);
 
@@ -37,6 +36,10 @@ public interface AttendanceLogService {
     List<CanteenManagerReport> getAttendanceCurrentRepoByBenefitType(int benefitType);
 
     List<CanteenManagerAttendanceReport> getGroupedAttendanceReport();
+
+    List<Integer> getStudentVisitedDaysByCurrentMonth(long studentId);
+
+    void changeAttendance(long studentId, boolean isVisited);
 
 
 }

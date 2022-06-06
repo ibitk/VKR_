@@ -15,7 +15,7 @@ import java.time.ZonedDateTime;
 public class AttendanceLog {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
 

@@ -17,7 +17,7 @@ public class BenefitType {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "name", length = 10, nullable = false)
+    @Column(name = "name", length = 20, nullable = false)
     private String name;
 
     @Column(name = "default_amount", nullable = false)

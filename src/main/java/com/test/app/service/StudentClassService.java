@@ -1,7 +1,10 @@
 package com.test.app.service;
 
+import com.test.app.entity.Student;
 import com.test.app.entity.StudentClass;
 import com.test.app.model.CreateStudentClassDTO;
+
+import java.util.List;
 
 
 public interface StudentClassService {
@@ -27,5 +30,9 @@ public interface StudentClassService {
      * @return созданный класс
      */
     void createStudentClass(CreateStudentClassDTO createStudentClassDTO);
+
+    List<StudentClass> getAllStudentClassesByCuratorId(long curatorId);
+
+    List<Student> getStudentsByCuratorId(long curatorId);
 
 }

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${title}"/>
-    <link rel="stylesheet" href="/css/CanteenManagerReportOne.css">
+    <link rel="stylesheet" th:href="@{/css/CanteenManagerReportOne.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <header class="header">
@@ -14,14 +15,15 @@
         <a href="/canteen/manager/1" class="nav_link">Платная основа отчет</a>
         <a href="/canteen/manager/2" class="nav_link">Малоимущие отчет</a>
         <a href="/canteen/manager/3" class="nav_link">Сироты отчет</a>
-        <div class="nav_link">Выйти</div>
+        <a href=" /signup" class="nav_link">Выйти</a>
     </div>
 
 </header>
 
 <section class="section">
 
-    <h1>Малоимущие отчет</h1>
+
+    <h1 th:text="${title}"></h1>
     <div class="big-table">
         <table>
 

@@ -17,6 +17,8 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -140,6 +142,56 @@ public class AttendanceLogServiceImpl implements AttendanceLogService {
 
         return map.values().stream().toList();
 
+    }
+
+    @Override
+    public List<Integer> getStudentVisitedDaysByCurrentMonth(long studentId) {
+        var localDate = LocalDateTime.now();
+        var startDate = ZonedDateTime.of(LocalDateTime.of(
+                        localDate.getYear(),
+                        localDate.getMonthValue(), 1, 0, 0),
+                ZoneId.systemDefault());
+        var endDate = ZonedDateTime.of(LocalDateTime.of(
+                        localDate.getYear(),
+                        localDate.getMonthValue(), localDate.getMonth().maxLength(), 23, 59),
+                ZoneId.systemDefault());
+
+        return attendanceLogRepo.findAttendanceLogsByStudentIdAndVisitedAtBetween(studentId, startDate, endDate).stream()
+                .map(el -> el.getVisitedAt().getDayOfMonth())
+                .toList();
+
+    }
+
+    @Override
+    public void changeAttendance(long studentId, boolean isVisited) {
+        var localDate = LocalDateTime.now();
+        var startDate = ZonedDateTime.of(LocalDateTime.of(
+                        localDate.getYear(),
+                        localDate.getMonthValue(), localDate.getDayOfMonth(), 0, 0),
+                ZoneId.systemDefault());
+        var endDate = ZonedDateTime.of(LocalDateTime.of(
+                        localDate.getYear(),
+                        localDate.getMonthValue(), localDate.getDayOfMonth(), 23, 59),
+                ZoneId.systemDefault());
+
+        var currentAttendance = attendanceLogRepo.getAttendanceLogByStudentIdAndVisitedAtBetween(studentId, startDate, endDate);
+        if (isVisited) {
+            if (currentAttendance.isPresent())
+                return;
+
+            var student = studentService.getStudentById(studentId);
+            var currentBenefit = benefitService.getCurrentBenefit(studentId);
+            var attLogToSave = AttendanceLog.builder()
+                    .visitedAt(ZonedDateTime.of(LocalDateTime.now(), ZoneId.systemDefault()))
+                    .student(student)
+                    .amount(currentBenefit.getAmount())
+                    .build();
+            attendanceLogRepo.save(attLogToSave);
+        } else {
+            if (currentAttendance.isEmpty())
+                return;
+            attendanceLogRepo.delete(currentAttendance.get());
+        }
     }
 
     private void detectPidoras(CanteenManagerAttendanceReport rep, int benefitType) {

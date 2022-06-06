@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SignUpController {
 
-    @GetMapping("/SignUp")
+    @GetMapping("/signup")
     public String SignUp(Model model) {
         model.addAttribute("title", "Страница входа");
         return "SignUp";

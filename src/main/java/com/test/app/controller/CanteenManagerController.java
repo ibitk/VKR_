@@ -17,11 +17,27 @@ public class CanteenManagerController {
     private final AttendanceLogService attendanceLogService;
 
     @GetMapping("manager/{categoryId}")
-    public String canteenManagerReport(Model model, @PathVariable final int categoryId) {
-        var report = attendanceLogService.getAttendanceCurrentRepoByBenefitType(categoryId);
 
-        model.addAttribute("title", "Отчет по малоимущим");
-        model.addAttribute("report", report);
+    public String canteenManagerReport(Model model, @PathVariable int categoryId) {
+        if (categoryId == 1) {
+            var report = attendanceLogService.getAttendanceCurrentRepoByBenefitType(categoryId);
+
+            model.addAttribute("title", "Платная основа: отчёт");
+            model.addAttribute("report", report);
+
+        } else if (categoryId == 2) {
+
+            var report = attendanceLogService.getAttendanceCurrentRepoByBenefitType(categoryId);
+
+            model.addAttribute("title", "Малоимущие: отчёт");
+            model.addAttribute("report", report);
+
+        } else {
+            var report = attendanceLogService.getAttendanceCurrentRepoByBenefitType(categoryId);
+
+            model.addAttribute("title", "Сироты: отчёт");
+            model.addAttribute("report", report);
+        }
 
         return "CanteenManagerReportOne";
     }

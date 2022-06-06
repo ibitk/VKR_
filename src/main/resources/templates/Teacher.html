@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="ClickButton.css">
+    <title th:text="${title}"/>
+    <link rel="stylesheet" th:href="@{/css/TeacherStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/ClickButton.css}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
 <header class="header">
@@ -26,264 +28,30 @@
 <section class="section">
 
     <h1>Таблица преподавателя</h1>
-    <div class="button">Сохранить изменения</div>
     <div class="big-table">
         <table>
             <tr>
                 <th></th>
                 <th>ФИО</th>
                 <th>Класс</th>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>10</th>
-                <th>11</th>
-                <th>12</th>
-                <th>13</th>
-                <th>14</th>
-                <th>15</th>
-                <th>16</th>
-                <th>17</th>
-                <th>18</th>
-                <th>19</th>
-                <th>20</th>
-                <th>21</th>
-                <th>22</th>
-                <th>23</th>
-                <th>24</th>
-                <th>25</th>
-                <th>26</th>
-                <th>27</th>
-                <th>28</th>
-                <th>29</th>
-                <th>30</th>
-                <th>31</th>
+                <th th:each="dayzEntry : ${dayz}" th:text="${dayzEntry}"></th>
             </tr>
-            <tr>
-                <td>№1</td>
-                <td>Блинкова Е.А.</td>
-                <td>РФ-5</td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-            </tr>
-            <tr>
-                <td>№2</td>
-                <td>Бурехина С.Ю.</td>
-                <td>РФ-11</td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-            </tr>
-            <tr>
-                <td>№3</td>
-                <td>Бутрин Д.А.</td>
-                <td>РФ-9</td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-            </tr>
-            <tr>
-                <td>№4</td>
-                <td>Вольф А.И.</td>
-                <td>РФ-3</td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-            </tr>
-            <tr>
-                <td>№5</td>
-                <td>Шумейко А.Р.</td>
-                <td>РФ-4</td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-            </tr>
-            <tr>
-                <td>№5</td>
-                <td>Шумейко А.Р.</td>
-                <td>РФ-4</td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
-                <td><input type="checkbox" class="plus-minus"></td>
+            <tr th:each="studentEntry : ${student}">
+                <td th:text="${studentEntry.studentId}"></td>
+                <td th:text="${studentEntry.studentName}"></td>
+                <td th:text="${studentEntry.groupName}"></td>
+                <td th:each="dayzEntry : ${dayz}">
+                    <input th:data-day="${dayzEntry}"
+                           th:disabled="${dayzEntry == currentDay} ? 'false' : 'true'"
+                           th:data-id="${studentEntry.studentId}"
+                           th:checked="${!#lists.contains(studentEntry.visitedDays, dayzEntry)}"
+                           type="checkbox"
+                           class="plus-minus"></td>
             </tr>
         </table>
     </div>
     </div>
 </section>
+<script src="/js/attendance.js"></script>
 </body>
 </html>

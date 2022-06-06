@@ -70,18 +70,6 @@ h2 {
 
 }
 
-.button {
-    cursor: pointer;
-    margin-left: 1100px;
-    padding: 15px 10px;
-    transition: background-color .1s linear;
-    color: white;
-    border-radius: 5px;
-    background-color: #973e95;
-    position: absolute;
-    top: 120px;
-    left: 108px;
-}
 
 #site-search {
     padding: 5px;
