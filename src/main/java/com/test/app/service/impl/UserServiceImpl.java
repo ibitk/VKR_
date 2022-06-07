@@ -6,6 +6,8 @@ import com.test.app.model.CreateUserDTO;
 import com.test.app.repo.UserRepo;
 import com.test.app.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,8 +25,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void removeUser(long id) {
-        if (userRepo.existsById(id))
+        if (userRepo.existsById(id)) {
             throw new NotFoundException("Преподаватель не найден");
+        }
         userRepo.deleteById(id);
     }
 
@@ -35,7 +38,7 @@ public class UserServiceImpl implements UserService {
                 .id(createUserDTO.getUserId())
                 .login(createUserDTO.getLogin())
                 .passwordHash(createUserDTO.getPasswordHash())
-                .roleId(createUserDTO.getRoleId())
+                .role(createUserDTO.getRoleId())
                 .build();
         userRepo.save(userEntity);
 
@@ -47,4 +50,10 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new NotFoundException("Пользователь не найден"));
     }
 
+    @Override
+    public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
+
+        return userRepo.getUserByLogin(username)
+                .orElseThrow(() -> new NotFoundException("Пользователь не найден"));
+    }
 }

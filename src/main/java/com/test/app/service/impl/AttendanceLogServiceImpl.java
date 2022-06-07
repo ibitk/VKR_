@@ -127,9 +127,11 @@ public class AttendanceLogServiceImpl implements AttendanceLogService {
 
         attendanceLog.forEach((el) -> {
             var clazz = el.getStudent().getStudentClass();
-            var benefitType = benefitService.getCurrentBenefit(el.getStudent().getId())
-                    .getBenefit()
-                    .getId();
+            var currentBenefit = benefitService.getCurrentBenefitOrNull(el.getStudent().getId());
+            if (currentBenefit == null) {
+                return;
+            }
+            var benefitType = currentBenefit.getBenefit().getId();
             if (!map.containsKey(clazz.getId())) {
                 map.put(clazz.getId(), CanteenManagerAttendanceReport.builder()
                         .groupName(clazz.getName())
@@ -156,7 +158,8 @@ public class AttendanceLogServiceImpl implements AttendanceLogService {
                         localDate.getMonthValue(), localDate.getMonth().maxLength(), 23, 59),
                 ZoneId.systemDefault());
 
-        return attendanceLogRepo.findAttendanceLogsByStudentIdAndVisitedAtBetween(studentId, startDate, endDate).stream()
+        return attendanceLogRepo.findAttendanceLogsByStudentIdAndVisitedAtBetween(studentId, startDate, endDate)
+                .stream()
                 .map(el -> el.getVisitedAt().getDayOfMonth())
                 .toList();
 
@@ -174,22 +177,25 @@ public class AttendanceLogServiceImpl implements AttendanceLogService {
                         localDate.getMonthValue(), localDate.getDayOfMonth(), 23, 59),
                 ZoneId.systemDefault());
 
-        var currentAttendance = attendanceLogRepo.getAttendanceLogByStudentIdAndVisitedAtBetween(studentId, startDate, endDate);
+        var currentAttendance = attendanceLogRepo.getAttendanceLogByStudentIdAndVisitedAtBetween(studentId, startDate,
+                endDate);
         if (isVisited) {
-            if (currentAttendance.isPresent())
+            if (currentAttendance.isPresent()) {
                 return;
+            }
 
             var student = studentService.getStudentById(studentId);
-            var currentBenefit = benefitService.getCurrentBenefit(studentId);
+            var currentBenefit = benefitService.getCurrentBenefitOrNull(studentId);
             var attLogToSave = AttendanceLog.builder()
                     .visitedAt(ZonedDateTime.of(LocalDateTime.now(), ZoneId.systemDefault()))
                     .student(student)
-                    .amount(currentBenefit.getAmount())
+                    .amount(currentBenefit == null ? 0 : currentBenefit.getAmount())
                     .build();
             attendanceLogRepo.save(attLogToSave);
         } else {
-            if (currentAttendance.isEmpty())
+            if (currentAttendance.isEmpty()) {
                 return;
+            }
             attendanceLogRepo.delete(currentAttendance.get());
         }
     }

@@ -2,15 +2,17 @@ package com.test.app.service;
 
 import com.test.app.entity.User;
 import com.test.app.model.CreateUserDTO;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
     /**
      * метод для отображения списка только классных преподавателей
      *
-     * @param roleId айди роли
+     * @param roleId
+     *         айди роли
      * @return сипсок пользователей
      */
     List<User> getUserListByRoleId(long roleId);

@@ -12,6 +12,8 @@ import com.test.app.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.ZonedDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class BenefitServiceImpl implements BenefitService {
@@ -51,11 +53,16 @@ public class BenefitServiceImpl implements BenefitService {
     public Benefit getCurrentBenefit(long studentId) {
 
         var student = studentService.getStudentById(studentId);
-
         return benefitRepo.findByStudentOrderByEndedAtDesc(student).get();
     }
 
-    private BenefitType getBenefitType(long id) {
+    @Override
+    public Benefit getCurrentBenefitOrNull(final long studentId) {
+        var student = studentService.getStudentById(studentId);
+        return benefitRepo.findByStudentOrderByEndedAtDesc(student).orElse(null);
+    }
+
+    private BenefitType getBenefitType(int id) {
         return benefitTypeRepo.findById(id)
                 .orElseThrow(() -> new NotFoundException("Бенефит не найден"));
     }

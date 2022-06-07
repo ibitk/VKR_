@@ -7,6 +7,7 @@ import com.test.app.exception.NotFoundException;
 import com.test.app.model.CreateStudentClassDTO;
 import com.test.app.model.SortCriteria;
 import com.test.app.repo.StudentClassRepo;
+import com.test.app.service.BenefitService;
 import com.test.app.service.StudentClassService;
 import com.test.app.service.StudentService;
 import com.test.app.service.UserService;
@@ -23,6 +24,7 @@ public class StudentClassServiceImpl implements StudentClassService {
     private final StudentClassRepo studentClassRepo;
     private final UserService userService;
     private final StudentService studentService;
+    private final BenefitService benefitService;
 
     @Override
     public void removeStudentClass(long id) {
@@ -59,7 +61,9 @@ public class StudentClassServiceImpl implements StudentClassService {
         var classes = getAllStudentClassesByCuratorId(curatorId);
 
         return classes.stream()
-                .flatMap(el -> studentService.findStudentsByClassId(el.getId(), SortCriteria.SORT_STUDENT_CLASS).stream())
+                .flatMap(el -> studentService.findStudentsByClassId(el.getId(), SortCriteria.SORT_STUDENT_CLASS)
+                        .stream())
+                .filter(el -> benefitService.getCurrentBenefitOrNull(el.getId()) != null)
                 .toList();
     }
 

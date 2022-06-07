@@ -3,6 +3,7 @@ package com.test.app.service;
 import com.test.app.entity.Benefit;
 import com.test.app.entity.BenefitType;
 import com.test.app.model.CreateBenefitDTO;
+import org.springframework.lang.Nullable;
 
 
 public interface BenefitService {
@@ -26,9 +27,13 @@ public interface BenefitService {
     /**
      * Данный метод возвращает бенефит студента, если студент не найден, то выбросится исключение
      *
-     * @param studentId id студента
+     * @param studentId
+     *         id студента
      * @return сущность бенефит для конкретного студента
      */
     Benefit getCurrentBenefit(long studentId);
+
+    @Nullable
+    Benefit getCurrentBenefitOrNull(long studentId);
 
 }
