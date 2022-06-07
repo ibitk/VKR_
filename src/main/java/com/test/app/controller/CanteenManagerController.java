@@ -1,5 +1,7 @@
 package com.test.app.controller;
 
+import com.test.app.exception.NotFoundException;
+import com.test.app.repo.BenefitTypeRepo;
 import com.test.app.service.AttendanceLogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,29 +17,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CanteenManagerController {
 
     private final AttendanceLogService attendanceLogService;
+    private final BenefitTypeRepo benefitTypeRepo;
 
     @GetMapping("manager/{categoryId}")
 
     public String canteenManagerReport(Model model, @PathVariable int categoryId) {
-        if (categoryId == 1) {
-            var report = attendanceLogService.getAttendanceCurrentRepoByBenefitType(categoryId);
 
-            model.addAttribute("title", "Платная основа: отчёт");
-            model.addAttribute("report", report);
+        var title = benefitTypeRepo.findById(categoryId)
+                .orElseThrow(() -> new NotFoundException("Данный тип льгот не найден"))
+                .getName();
 
-        } else if (categoryId == 2) {
+        var report = attendanceLogService.getAttendanceCurrentRepoByBenefitType(categoryId);
 
-            var report = attendanceLogService.getAttendanceCurrentRepoByBenefitType(categoryId);
-
-            model.addAttribute("title", "Малоимущие: отчёт");
-            model.addAttribute("report", report);
-
-        } else {
-            var report = attendanceLogService.getAttendanceCurrentRepoByBenefitType(categoryId);
-
-            model.addAttribute("title", "Сироты: отчёт");
-            model.addAttribute("report", report);
-        }
+        model.addAttribute("title", title + ": отчёт");
+        model.addAttribute("report", report);
 
         return "CanteenManagerReportOne";
     }

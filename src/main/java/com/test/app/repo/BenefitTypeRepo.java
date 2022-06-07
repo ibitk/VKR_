@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BenefitTypeRepo extends CrudRepository<BenefitType, Long> {
+public interface BenefitTypeRepo extends CrudRepository<BenefitType, Integer> {
 }
